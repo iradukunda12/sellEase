@@ -46,39 +46,66 @@ This full-stack project is built using **Flutter (Riverpod)** for the frontend, 
 
 ## 📦 Folder Structure
 
-lib/
-│
-├── core/                              # Core utilities for the entire app
-│   ├── error/
-│   │   └── failures.dart
-│   ├── network/
-│   │   ├── api_client.dart
-│   │   └── network_info.dart
-│   ├── utils/
-│   │   ├── constants.dart
-│   │   └── helpers.dart
-│   └── injection.dart                  # Dependency injection configuration (using GetIt or Riverpod)
-│
-├── features/                           # Feature-specific logic
-│   ├── auth/                           # Authentication feature (login, sign-up)
-│   │   ├── auth_provider.dart          # Riverpod provider for auth-related states
-│   │   ├── auth_service.dart           # Authentication service
-│   │   ├── auth_page.dart              # UI for auth (login/signup)
-│   │   └── user_model.dart             # Auth-related model (User, etc.)
-│   │
-│   ├── product/                        # Product feature (product list, details, etc.)
-│   │   ├── product_provider.dart       # Riverpod provider for products
-│   │   ├── product_service.dart        # Service to fetch product data (API call logic)
-│   │   ├── product_page.dart           # UI for product list
-│   │   └── product_model.dart          # Product data model
-│   │
-│   ├── live_sales/                     # Live Sales feature (Live streaming, selling)
-│   │   ├── live_sales_provider.dart    # Riverpod provider for live sales
-│   │   ├── live_sales_service.dart     # Service for live sales handling
-│   │   ├── live_sales_page.dart        # UI for live sales (streaming page)
-│   │   └── live_sale_model.dart        # Live sales-related model
-│
-└── main.dart                           # Entry point of the app
+## lib/
+Main directory for all app logic.
+
+## core/ – Core Utilities
+Contains global resources used throughout the app.
+
+error/
+failures.dart – Defines custom error and failure classes.
+
+network/
+api_client.dart – Handles HTTP client setup (Dio or Http).
+
+network_info.dart – Checks for internet connectivity.
+
+utils/
+constants.dart – App-wide constants like colors, strings, etc.
+
+helpers.dart – Helper functions and extensions.
+
+injection.dart –
+Sets up dependency injection (via Riverpod or GetIt).
+
+## features/ – Feature-Based Modules
+Each app feature is isolated for clean code organization.
+
+### auth/ – Authentication
+Handles login, sign-up, and user-related logic.
+
+auth_provider.dart – Riverpod state notifier for auth flow.
+
+auth_service.dart – Logic for login, registration, logout.
+
+auth_page.dart – UI for sign-in/sign-up.
+
+user_model.dart – Defines User model.
+
+### product/ – Product Listings
+Handles everything related to listing and showing products.
+
+product_provider.dart – Riverpod provider for product state.
+
+product_service.dart – API calls and business logic.
+
+product_page.dart – Product list/grid UI.
+
+product_model.dart – Product model structure.
+
+### live_sales/ – Live Streaming for Selling
+Allows sellers to go live and promote products.
+
+live_sales_provider.dart – Riverpod state for live session handling.
+
+live_sales_service.dart – Start/stop stream, push product updates.
+
+live_sales_page.dart – Live stream screen UI.
+
+live_sale_model.dart – Live sales session data.
+
+## main.dart
+The app entry point. Initializes providers and routes.
 
 ```bash
 cd sellEase
